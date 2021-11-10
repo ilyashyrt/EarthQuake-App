@@ -21,14 +21,14 @@ class EarthQuakeView extends StatelessWidget {
           return ListView.builder(
             itemCount: controller.earthquakeListObs.length,
             itemBuilder: (context,index){
-              
+              var myFinalList = controller.earthquakeListObs[index].result[index];
               return InkWell(
-                onTap: ()=> launch('https://www.google.com/maps/search/?api=1&query=${controller.earthquakeListObs[index].result[index].lat},${controller.earthquakeListObs[index].result[index].lng}'),
+                onTap: ()=> launch('https://www.google.com/maps/search/?api=1&query=${myFinalList.lat},${myFinalList.lng}'),
                 child: ListTile(
-                  title: Text(controller.earthquakeListObs[index].result[index].title,style: AppConstants.boldTextStyle,),
+                  title: Text(myFinalList.title,style: AppConstants.boldTextStyle,),
                   leading: Text("${index+1}"),
-                  trailing: Text("${controller.earthquakeListObs[index].result[index].mag}",style: AppConstants.boldTextStyle,),
-                  subtitle: Text("${controller.earthquakeListObs[index].result[index].date}"),
+                  trailing: Text("${myFinalList.mag}",style: AppConstants.boldTextStyle,),
+                  subtitle: Text("${myFinalList.date}"),
                 ),
               );
             },
