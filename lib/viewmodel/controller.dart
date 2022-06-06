@@ -22,8 +22,6 @@ class EarthquakeController extends GetxController {
         for (int i = 0; i < earthquakes.result.length; i++) {
           earthquakeListObs.add(earthquakes);
         }
-        //earthquakeListObs.refresh(); //GÜNCELLENEN VERİLERİ EKRANA YANSITMASI İÇİN YAZDIM AMA ÇALIŞMADI!!!!
-
       }
     } finally {
       isLoading(false);
